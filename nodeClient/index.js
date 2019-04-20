@@ -13,3 +13,20 @@ const memUsage = Math.floor(((usedMem / totalMem) * 100) / 100);
 const cpuModel = cpus[0].model;
 const numCores = cpus.length;
 const cpuSpeed = cpus[0].speed;
+
+function cpuAverage() {
+  let idleMs = 0;
+  let totalMs = 0;
+  cpus.forEach(aCore => {
+    for (type in aCore.times) {
+      totalMs += aCore.times[type];
+    }
+    idleMs += aCore.times.idle;
+  });
+  return {
+    idle: idleMs / cpus.length,
+    total: totalMs / cpus.length
+  };
+}
+
+console.log(cpuAverage());
