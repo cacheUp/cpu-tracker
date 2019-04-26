@@ -11,6 +11,9 @@ socket.on("connect", () => {
       break;
     }
   }
+
+  socket.emit("clientAuth", "adsfasdaf0804285");
+
   let perfDataInterval = setInterval(() => {
     performanceData().then(allPerformanceData => {
       socket.emit("perfData", allPerformanceData);
