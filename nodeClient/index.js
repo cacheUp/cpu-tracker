@@ -4,6 +4,7 @@ let socket = io("http://127.0.0.1:8181");
 
 socket.on("connect", () => {
   const nI = os.networkInterfaces();
+  console.log(nI);
   let macA;
   for (let key in nI) {
     if (!nI[key][0].internal) {
@@ -13,6 +14,11 @@ socket.on("connect", () => {
   }
 
   socket.emit("clientAuth", "adsfasdaf0804285");
+
+  performanceData().then(allPerformanceData => {
+    allPerformanceData.macA = macA;
+    socket.emit("initPerfData", allPerformanceData);
+  });
 
   let perfDataInterval = setInterval(() => {
     performanceData().then(allPerformanceData => {
