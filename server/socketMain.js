@@ -1,3 +1,5 @@
+const mongoose = require("mongoose");
+
 function socketMain(io, socket) {
   socket.on("clientAuth", key => {
     if (key === "adsfasdaf0804285") {
