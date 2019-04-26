@@ -1,4 +1,7 @@
 const mongoose = require("mongoose");
+require("dotenv").config();
+
+mongoose.connect(`${process.env.DB_CONFIG}`, { useNewUrlParser: True });
 
 function socketMain(io, socket) {
   socket.on("clientAuth", key => {
