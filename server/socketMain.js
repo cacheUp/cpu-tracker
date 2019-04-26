@@ -1,7 +1,8 @@
 const mongoose = require("mongoose");
-require("dotenv").config();
+const dbconfig = require("../../dbconfig");
+const Machine = require("./models/Machine");
 
-mongoose.connect(`${process.env.DB_CONFIG}`, { useNewUrlParser: True });
+mongoose.connect(`${dbconfig}`, { useNewUrlParser: true });
 
 function socketMain(io, socket) {
   socket.on("clientAuth", key => {
@@ -14,8 +15,12 @@ function socketMain(io, socket) {
     }
   });
 
-  socket.on("perfData", data => {
+  socket.on("initPerfData", data => {
     console.log(data);
+  });
+
+  socket.on("perfData", data => {
+    // console.log(data);
   });
 }
 

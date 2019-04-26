@@ -10,7 +10,7 @@
     "nodemon": "nodemon node"
   },
   "dependencies": {
-    "dotenv": "^7.0.0",
+    "dotenv": "^6.2.0",
     "express": "^4.16.4",
     "farmhash": "^2.1.0",
     "helmet": "^3.16.0",
