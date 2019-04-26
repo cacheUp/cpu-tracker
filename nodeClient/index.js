@@ -1,7 +1,27 @@
 const os = require("os");
+const io = require("socket.io-client");
+let socket = io("http://127.0.0.1:8181");
+
+socket.on("connect", () => {
+  const nI = os.networkInterfaces();
+  let macA;
+  for (let key in nI) {
+    if (!nI[key][0].internal) {
+      macA = nI[key][0].mac;
+      break;
+    }
+  }
+  let perfDataInterval = setInterval(() => {
+    performanceData().then(allPerformanceData => {
+      socket.emit("perfData", allPerformanceData);
+    });
+  }, 1000);
+});
+
 function performanceData() {
   return new Promise(async (res, reject) => {
     const cpus = os.cpus();
+
     const freeMem = os.freemem();
     const totalMem = os.totalmem();
     const osType = os.type() == "Darwin" ? "Mac" : os.type();
@@ -59,7 +79,3 @@ function getCpuLoad() {
     }, 100);
   });
 }
-
-performanceData().then(data => {
-  console.log(data);
-});
