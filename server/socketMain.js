@@ -9,8 +9,9 @@ function socketMain(io, socket) {
   socket.on("clientAuth", key => {
     if (key === "adsfasdaf0804285") {
       socket.join("clients");
-    } else if ((key = "safasdfasdfsa")) {
+    } else if (key === "safasdfasdfsa") {
       socket.join("ui");
+      console.log("a react client has joined");
     } else {
       socket.disconnect(true);
     }
@@ -23,7 +24,8 @@ function socketMain(io, socket) {
   });
 
   socket.on("perfData", data => {
-    // console.log(data);
+    console.log("Tick");
+    io.to("ui").emit("data", data);
   });
 }
 
