@@ -12,11 +12,16 @@ class App extends Component {
 
   componentDidMount() {
     socket.on("data", data => {
-      console.log(data);
+      const currentState = { ...this.state.performanceData };
+      currentState[data.macA] = data;
+      this.setState({
+        performanceData: currentState
+      });
     });
   }
 
   render() {
+    console.log(this.state.performanceData);
     return (
       <div className="App">
         <Widget />
