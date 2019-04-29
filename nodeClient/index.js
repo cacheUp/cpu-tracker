@@ -48,7 +48,7 @@ function performanceData() {
 
     const usedMem = totalMem - freeMem;
 
-    const memUsage = Math.floor(((usedMem / totalMem) * 100) / 100);
+    const memUsage = Math.floor((usedMem / totalMem) * 100) / 100;
 
     const cpuModel = cpus[0].model;
     const numCores = cpus.length;

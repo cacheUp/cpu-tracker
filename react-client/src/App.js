@@ -23,6 +23,7 @@ class App extends Component {
   render() {
     let widgets = [];
     const data = this.state.performanceData;
+    console.log(data);
     Object.entries(data).forEach(([key, value]) => {
       widgets.push(<Widget key={key} data={value} />);
     });

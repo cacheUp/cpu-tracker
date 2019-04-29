@@ -27,10 +27,9 @@ class Widget extends React.Component {
     const info = { macA, osType, upTime, cpuModel, numCores, cpuSpeed };
     return (
       <div>
-        <h1>Widget</h1>
-        <Cpu />
-        <Mem />
-        <Info />
+        <Cpu cpuData={cpu} />
+        <Mem memData={mem} />
+        <Info infoData={info} />
       </div>
     );
   }
