@@ -6,12 +6,18 @@ socket.on("connect", () => {
   const nI = os.networkInterfaces();
   console.log(nI);
   let macA;
-  for (let key in nI) {
+  for (let key in nI)
     if (!nI[key][0].internal) {
-      macA = nI[key][0].mac;
+      if ((nI[key][0].mac = "00:00:00:00:00:00")) {
+        macA = Math.random()
+          .toString(36)
+          .substr(2, 15);
+      } else {
+        macA = nI[key][0].mac;
+      }
+
       break;
     }
-  }
 
   socket.emit("clientAuth", "adsfasdaf0804285");
 

@@ -21,12 +21,12 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.state.performanceData);
-    return (
-      <div className="App">
-        <Widget />
-      </div>
-    );
+    let widgets = [];
+    const data = this.state.performanceData;
+    Object.entries(data).forEach(([key, value]) => {
+      widgets.push(<Widget key={key} data={value} />);
+    });
+    return <div className="App">{widgets}</div>;
   }
 }
 

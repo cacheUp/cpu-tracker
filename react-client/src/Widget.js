@@ -9,6 +9,22 @@ class Widget extends React.Component {
     this.state = {};
   }
   render() {
+    const {
+      freeMem,
+      totalMem,
+      usedMem,
+      memUsage,
+      osType,
+      upTime,
+      cpuModel,
+      numCores,
+      cpuSpeed,
+      cpuLoad,
+      macA
+    } = this.props.data;
+    const cpu = { cpuLoad };
+    const mem = { totalMem, usedMem, memUsage, freeMem };
+    const info = { macA, osType, upTime, cpuModel, numCores, cpuSpeed };
     return (
       <div>
         <h1>Widget</h1>
