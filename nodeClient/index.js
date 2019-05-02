@@ -9,6 +9,7 @@ socket.on("connect", () => {
   for (let key in nI) {
     //for testing
     macA = Math.floor(Math.random() * 3 + 1);
+
     break;
     //for testing
 
