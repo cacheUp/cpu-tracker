@@ -14,7 +14,7 @@ function Mem(props) {
         <div className="mem-text">{memUsage * 100}%</div>
       </div>
       <div>Total Memory: {((totalMem / 1073741824) * 100) / 100}</div>
-      <div>Free Memory: {totalMem}</div>
+      <div>Free Memory: {((freeMem / 1073741824) * 100) / 100}</div>
     </div>
   );
 }
