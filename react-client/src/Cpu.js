@@ -10,7 +10,7 @@ function Cpu(props) {
       <h3>Cpu Load</h3>
       <div className="canvas-wrapper">
         <canvas className="canvas" width="200" height="200" />
-        <div className="cpu-text">{props.cpuData.cpuLoad}</div>
+        <div className="cpu-text">{props.cpuData.cpuLoad}%</div>
       </div>
     </div>
   );

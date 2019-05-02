@@ -8,9 +8,10 @@ function Mem(props) {
   console.log(memUsage);
   return (
     <div className="col-sm-3 mem">
-      <h3>medm!</h3>
+      <h3>Memory Usage</h3>
       <div className="canvas-wrapper">
         <canvas className="memCanvas" width="200" height="200" />
+        <div className="mem-text">{memUsage * 100}%</div>
       </div>
     </div>
   );
