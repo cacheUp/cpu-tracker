@@ -6,7 +6,12 @@ socket.on("connect", () => {
   const nI = os.networkInterfaces();
   console.log(nI);
   let macA;
-  for (let key in nI)
+  for (let key in nI) {
+    //for testing
+    macA = Math.floor(Math.random() * 3 + 1);
+    break;
+    //for testing
+
     if (!nI[key][0].internal) {
       if ((nI[key][0].mac = "00:00:00:00:00:00")) {
         macA = Math.random()
@@ -18,6 +23,7 @@ socket.on("connect", () => {
 
       break;
     }
+  }
 
   socket.emit("clientAuth", "adsfasdaf0804285");
 
@@ -54,6 +60,7 @@ function performanceData() {
     const numCores = cpus.length;
     const cpuSpeed = cpus[0].speed;
     const cpuLoad = await getCpuLoad();
+    const isActive = true;
     res({
       freeMem,
       totalMem,
@@ -64,7 +71,8 @@ function performanceData() {
       cpuModel,
       numCores,
       cpuSpeed,
-      cpuLoad
+      cpuLoad,
+      isActive
     });
   });
 }
