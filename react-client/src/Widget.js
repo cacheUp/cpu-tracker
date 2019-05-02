@@ -2,6 +2,7 @@ import React from "react";
 import Cpu from "./Cpu";
 import Info from "./Info";
 import Mem from "./Mem";
+import "./widget.css";
 
 class Widget extends React.Component {
   constructor() {
